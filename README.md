@@ -3,7 +3,14 @@
 
 ## Requirements
 
+- Python 3
+- Flask
 
+
+
+## Run Flask
+
+1. `flask --app main run`
 
 
 
