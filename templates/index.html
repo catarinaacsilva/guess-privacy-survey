@@ -8,10 +8,15 @@
     
     <title>Guess Privacy Quantification</title>
   </head>
-  <body onload="main()">
+  <!--<body onload="main()">-->
+    <body>
     <h1>Guess Privacy Quantification</h1>
 
-    <div id="bar_plot"></div>
+    <!--<div id="bar_plot"></div>-->
+
+    {% for result in results %}
+    <div>{{result["search-results"]["opensearch:totalResults"]}}</div>
+    {% endfor %}
 
   </body>
 </html>
