@@ -5,18 +5,10 @@
     <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
     <meta charset="utf-8">
-    
     <title>Guess Privacy Quantification</title>
   </head>
-  <!--<body onload="main()">-->
-    <body>
+  <body onload="main()">
     <h1>Guess Privacy Quantification</h1>
-
-    <!--<div id="bar_plot"></div>-->
-
-    {% for result in results %}
-    <div>{{result["search-results"]["opensearch:totalResults"]}}</div>
-    {% endfor %}
-
+    <div id="bar_plot"></div>
   </body>
 </html>

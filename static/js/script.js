@@ -1,14 +1,8 @@
-//var scopusApiKey = process.env.SCOPUSAPIKEY;
+function main(){
+  let years = null;
+  let papers_per_years = null;
 
-// check it--- to secret api key
-//require('dotenv').config();
-
-function scopus_get_data(year) {
-  let url='https://api.elsevier.com/content/search/scopus\
-?apiKey=API_KEY\
-&query=TITLE-ABS-KEY(privacy%20AND%20quantification%20AND%20NOT%20proceedings)\
-&date='+year;
-
+  let url='/getpq'
 
   const request = new XMLHttpRequest();
   request.open('GET', url, false);  // `false` makes the request synchronous
@@ -16,25 +10,9 @@ function scopus_get_data(year) {
 
   if (request.status === 200) {
     let response_json = JSON.parse(request.responseText);
-    paper_per_year = response_json['search-results']['opensearch:totalResults']
-    return paper_per_year
-  }
-  return null;
-}
-
-function main(){
-  // Get current year
-  max_year = new Date().getFullYear();
-  min_year = 2008;
-  
-  let years = [];
-  let papers_per_years = [];
-  
-  for (let i= min_year; i <= max_year; i++) {
-    let paper_per_year = scopus_get_data(i);
-    console.log(paper_per_year);
-    years.push(i);
-    papers_per_years.push(paper_per_year);
+    console.log(response_json);
+    years = response_json['years'];
+    papers_per_years = response_json['publications'];
   }
 
   var data = [
@@ -47,6 +25,3 @@ function main(){
 
   Plotly.newPlot('bar_plot', data);
 }
-
-
-
