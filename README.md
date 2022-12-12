@@ -1,4 +1,4 @@
-# Guess Privacy Quantification
+# Guess Privacy
 
 
 ## Execute
