@@ -134,3 +134,5 @@ secrets.py
 *.csv
 
 config.py
+
+api.txt
